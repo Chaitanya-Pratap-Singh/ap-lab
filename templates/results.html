@@ -1,0 +1,56 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="theme-color" content="#2563eb" />
+		<title>Bus Route Results</title>
+		<link
+			rel="stylesheet"
+			href="{{ url_for('static', filename='style.css') }}"
+		/>
+		<style>
+			.route-list li {
+				animation: slideIn 0.5s ease forwards;
+				opacity: 0;
+				transform: translateX(-20px);
+			}
+			@keyframes slideIn {
+				to {
+					opacity: 1;
+					transform: translateX(0);
+				}
+			}
+			.route-list li:nth-child(1) {
+				animation-delay: 0.1s;
+			}
+			.route-list li:nth-child(2) {
+				animation-delay: 0.2s;
+			}
+			.route-list li:nth-child(3) {
+				animation-delay: 0.3s;
+			}
+			.route-list li:nth-child(4) {
+				animation-delay: 0.4s;
+			}
+			.route-list li:nth-child(5) {
+				animation-delay: 0.5s;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="card">
+				<h2>🚌 Optimized Bus Route</h2>
+				<ul class="route-list">
+					{% for step in route %}
+					<li>{{ step }}</li>
+					{% endfor %}
+				</ul>
+				<a href="/" class="back-link">🔙 Back to Home</a>
+			</div>
+		</div>
+	</body>
+</html>
